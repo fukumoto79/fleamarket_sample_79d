@@ -82,12 +82,12 @@
           %br
           不快な言葉遣いなどは利用制限や退会処分となることがあります。
         .textarea
-          = form_with(model: [@product, @comment], local: true, id: "new-comment") do |form|
-            = form.text_area :comment, class: "textbox",placeholder: "コメントは120文字まで入力できます。"
+          = form_with model: [@product, @comment], local: true, id: "new_comment", class: "comment-form" do |form|
+            = form.text_area :text, placeholder: "コメントする"
+            = button_tag type: 'submit', class: "form__submit"do
+              %i.fa.fa-comment コメントする
         .form
           -# '　　'で位置調整していますproduct_buyers_path(@product.id)
-          = button_tag type: 'submit', class: "form__submit"do
-            %i.fa.fa-comment コメントする
           -# %input.form__submit{type: 'submit', value: '　　コメントする'}
           -# = icon('fas', 'comment')
     .links
